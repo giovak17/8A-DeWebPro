@@ -1,0 +1,20 @@
+{% extends "todo_board/base.html" %}
+
+
+{% block content%}
+<div class="py-4">
+    <h1 class="text-center">Segundo examen</h1>
+    <h4 class="text-center">Pizarra de pendientes (ToDo) - Barraza Andalon Kevin Giovanni 8A</h4>
+</div>
+<ul>
+    <li><a href="{% url 'todo_board:add' %}">Añadir ToDo</a></li>
+    <li><a href="{% url 'todo_board:list_all_id' %}">Lista de todos los pendientes (solo IDs)</a></li>
+    <li><a href="{% url 'todo_board:list_all_id_title' %}">Lista de todos los pendientes (IDs y Titles)</a></li>
+    <li><a href="{% url 'todo_board:list_not_done' %}">Lista de todos los pendientes sin resolver (ID y Title)</a></li>
+    <li><a href="{% url 'todo_board:list_done' %}">Lista de todos los pendientes resueltos(ID y Title)</a></li>
+    <li><a href="{% url 'todo_board:list_all_id_user' %}">Lista de todos los pendientes (IDs y userID)</a></li>
+    <li><a href="{% url 'todo_board:list_done_id_user' %}">Lista de todos los pendientes resueltos (ID y userID)</a></li>
+    <li><a href="{% url 'todo_board:list_not_done_id_user' %}">Lista de todos los pendientes sin resolver (ID y userID)</a></li>
+
+</ul>
+{% endblock content%}

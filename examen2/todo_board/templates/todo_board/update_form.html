@@ -1,0 +1,26 @@
+{% extends "todo_board/base.html" %}
+{% block content%}
+{% if todo%}
+<h1>Actualizar ToDo {{todo.todo_id}}</h1>
+
+    <form action="{% url 'todo_board:update' todo.todo_id %}" method="post">
+        {% csrf_token %}
+        <label for="title">Titulo</label>
+        <br>
+        <input type="text" placeholder="Titulo" name="title" value="{{todo.title}}" />
+        <br>
+        <label for="user_id">Usuario ID</label>
+        <br>
+        <input type="number" placeholder="Usuario ID" name="user_id" value="{{todo.user_id}}"/>
+        <br>
+        <label for="done">Marcar como completado: </label>
+        <input type="checkbox" placeholder="Resuelto" name="done" {% if todo.done %} checked {% endif %}/>
+        <br>
+        <input type="number" value="{{todo.todo_id}}" name="todo_id" hidden/>
+        <button type="submit" class="btn btn-warning py-2 px-4 my-4">Actualizar</button>
+
+    </form>
+{% else %}
+    <p>No se puede actualizar.</p>
+{% endif %}
+{% endblock content%}

@@ -1,0 +1,32 @@
+{% extends "todo_board/base.html" %}
+
+{% block content%}
+<h1>
+   Lista de todos los pendientes sin resolver (ID y userID)
+</h1>
+{% if todos %}
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">ToDo ID</th>
+        <th scope="col">Usuario ID</th>
+        <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in todos %}
+            <tr>
+            <td>{{ t.todo_id }}</td>
+            <td>{{ t.user_id }}</td>
+            <td><a href="{% url 'todo_board:delete' t.todo_id %}"><button class="btn btn-danger">Eliminar</button></a></td>
+            <td><a href="{% url 'todo_board:update' t.todo_id %}"><button class="btn btn-warning">Actualizar</button></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+{% else %}
+    <p>No hay ToDos para mostar.<p/>
+{% endif %}
+
+{% endblock content%}

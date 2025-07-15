@@ -1,0 +1,18 @@
+{% extends "todo_board/base.html" %}
+{% block content%}
+<h1>Anadir ToDo</h1>
+
+<form action="{% url 'todo_board:add' %}" method="post">
+    {% csrf_token %}
+    <label for="title">Titulo</label>
+    <br>
+    <input type="text" placeholder="Titulo" name="title" required/>
+    <br>
+    <label for="title">Usuario ID</label>
+    <br>
+    <input type="number" placeholder="Usuario ID" name="user_id" required/>
+    <br>
+    <button type="submit" class="btn btn-primary py-2 px-4 my-4">Registrar</button>
+
+</form>
+{% endblock content%}

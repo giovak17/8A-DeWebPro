@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ToDos</title>
+        <link rel="stylesheet" href="{% static 'todo_board/bootstrap/css/bootstrap.min.css' %}">
+
+        <a href="{% url 'todo_board:index' %}">
+            <p class="fw-bold">Index</p>
+        </a>
+    </head>
+
+    <body class="container p-5">
+    {% block content %}
+    {% endblock content %}
+    </body>
+</html>
